@@ -1,0 +1,14 @@
+git init
+git hash-object -w dir1/foo.txt
+git update-index --add dir1/foo.txt
+git hash-object -w dir1/bar.png
+git update-index --add dir1/bar.png
+
+git write-tree
+>>4c5cae94667fe49b10236b32430cf4b9bfdc4ad8
+
+echo 'it is commit' | git commit-tree 4c5cae94667fe49b10236b32430cf4b9bfdc4ad8
+>>3a4305dba522d3db6cfa6ae9f714ede5e461cef7
+
+git update-ref HEAD 3a4305dba522d3db6cfa6ae9f714ede5e461cef7
+
